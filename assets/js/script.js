@@ -1,33 +1,32 @@
 $(document).ready(function() {
-    // Declarar función con parámetros para obtener datos
-    function obtenerDatos(){
-        return $('#namePokemon').val();
-    }
+  Swal.fire({
+    title: "¡Atrapa tu Pokemon!",
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off"
+    },
+    showCancelButton: true,
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Buscar",
+    showLoaderOnConfirm: true,
+    preConfirm: param => {
+      return fetch(`https://pokeapi.co/api/v2/pokemon/${param}`)
+        .then(response => {
+          return response.json();
+        })
 
-    // $('.btnBuscar').click(function() {
-    $('#btnBuscar').click(function() {
-        
-        // Obtener el valor del pokemon ingresado por el usuario
-          
-        let datos = $('#datos');
-
-        $.ajax({
-            type: "GET",
-            url: "https://pokeapi.co/api/v2/pokemon/{id}",
-            data: "json",
-            success: function (response) {
-                console.log(response);
-                $.each(response.results , function(index, element) {
-                    if(obtenerDatos() === element.name) {
-                        datos.append('<p>Mi pokemon es ' + element.name + '</p>');
-                    }
-                });
-            },
-
-            error: function() {
-                console.log("No se ha podido obtener la información");
-            }
+        .catch(error => {
+          Swal.showValidationMessage(`El pokemon que buscas no existe`);
         });
+    }
+  }).then(result => {
+    console.log("result", result);
+    Swal.fire({
+      title: `${result.value.name}'s avatar`,
+      imageUrl: result.value.sprites.front_shiny
     });
-        
+  });
+
+  //capturando container donde se imprimirán los datos del pokemón requerido.
+  let datos = $("#datos");
 });
