@@ -1,9 +1,81 @@
+/* Definiendo grilla*/
 .container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-gap: 4em;
+    align-items: center;
 }
 
-.carousel-item img {
-    width: 20rem;
+/* Ajustando tamaño de la imágen del pokemon */
+.img {
+    width: 10em;
+}
+
+/* Margen del div donde irá la información */
+.infoPokemon {
+    margin: 0 3em;   
+}
+
+body {
+    background-color: #fdfdd7;
+}
+
+/* Media query para pantallas grandes */
+@media screen and (min-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .img {
+        width: 15em;
+    }
+
+}
+
+/* Aplicando animación a imagenes de pokemon */
+@keyframes opacar {
+    0% {opacity: 0;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+.img {
+    -webkit-animation-name: opacar;
+            animation-name: opacar;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+/* Quitando viñetas a los elementos de <ul> */
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: rgb(214, 8, 8);
+    margin-top: 8rem;
+    padding-bottom: 1em;
+}
+
+.footer_imgLogo {
+    width: 8em;
+}
+
+/* Botones sweet alert */
+.swal2-styled.swal2-confirm {
+    background-color: #dad613;
+    font-weight: bold;
+    color: #000000;
+}
+
+.swal2-styled.swal2-cancel {
+    background-color: #d63530;
+    font-weight: bold;
 }

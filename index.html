@@ -18,10 +18,28 @@
 
 <body>
 
-    <div class="container">
-        <div id="datos" class="box-datos"></div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
+    <main class="container pt-5">
+        <div id="datos" class="box-datos">
+            <div class="pb-4">
+                <span id="img1"></span>
+                <span id="img2"></span>
+            </div>
+
+            <div id="info" class="infoPokemon">
+
+            </div>
+        </div>
+
+        <div class="chart">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="d-flex justify-content-center p-5">
+            <img src="assets/img/logo_pokemon.webp" class="footer_imgLogo" alt="Logo footer">
+        </div>
+    </footer>
 
     <!-- jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

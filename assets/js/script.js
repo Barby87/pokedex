@@ -26,51 +26,35 @@ Swal.fire({
   });
 
   $(document).ready(function() {
-    // Capturando container donde se imprimirán los datos del pokemón requerido.
-
-    let datos = $("#datos");
-
-    let carrusel =
-      '<div id="carouselExampleSlidesOnly" class="carousel slide"><div class="carousel-inner"></div></div>';
-
-    // Asignando el carrusel al div "datos"
-
-    datos.append(carrusel);
+    
+    // Capturando containers donde se imprimirán los datos del pokemón requerido.
+    // let datos = $("#datos");
+    let info = $("#info");
 
     // Creando los divs que contienen los sprites y añadiendo dinamicamente desde la api el valor del "src" de las imagenes que albergan.
 
-    let sprite1 = `<div class="carousel-item active"><img src='${result.value.sprites.back_default}' class="d-block w-20"></div>`;
+    let sprite1 = `<img src="${result.value.sprites.front_shiny}" class="img img_pokemon2" alt="Imagen parte frontal">`;
 
-    let sprite2 = `<div class="carousel-item active"><img src='${result.value.sprites.back_shiny}' class="d-block w-20"></div>`;
+    let sprite2 = `<img src="${result.value.sprites.back_shiny}" class="img img_pokemon1" alt="Imagen parte trasera">`;
 
-    let sprite3 = `<div class="carousel-item active"><img src='${result.value.sprites.front_default}' class="d-block w-20"></div>`;
-
-    let sprite4 = `<div class="carousel-item active"><img src='${result.value.sprites.front_shiny}' class="d-block w-20"></div>`;
-
-    // Añadiendo las imagenes (sprites) al carousel arriba creado.
-    $(".carousel-inner").append(sprite1);
-    $(".carousel-inner").append(sprite2);
-    $(".carousel-inner").append(sprite3);
-    $(".carousel-inner").append(sprite4);
-
-    // Arrancando el carrusel (con función de Bootstrap).
-    $(".carousel").carousel();
+    // Añadiendo las imágenes los <div> con su respectivo id.
+    $("#img1").append(sprite1);
+    $("#img2").append(sprite2);
 
     // Añadiendo nombre del pokemon al div 'datos'.
-    datos.append(
-      //   `<p class='text-capitalize>Nombre: <strong>${result.value.name}</strong></p>`
-      `<p class='text-uppercase font-weight-bold'>${result.value.name}</p>`
+    info.append(
+      `<h1 class='text-uppercase font-weight-bold pb-3'>${result.value.name}</h1>`
     );
 
     // Añadiendo habilidades.
-    datos.append("<p> Habilidades:</p>");
-    datos.append('<ul id="skills"</ul>');
+    info.append("<h5> Habilidades:</h5>");
+    info.append('<ul id="skills"</ul>');
     console.log("result.abilities", result.value.abilities);
 
     // Iterando habilidades para luego añadirlas como una lista.
     $.each(result.value.abilities, function(index, element) {
       $("#skills").append(
-        `<li class="skill">Habilidad ${index + 1}: <strong> ${
+        `<li class="skill text-capitalize">Habilidad ${index + 1}: <strong> ${
           element.ability.name
         }</strong></li>`
       );
@@ -78,8 +62,8 @@ Swal.fire({
 
     let typesArray = result.value.types;
 
-    datos.append("<p>Tipo:</p>");
-    datos.append('<ul id="types"</ul>');
+    info.append("<h5>Tipo:</h5>");
+    info.append('<ul id="types"</ul>');
 
     $.each(typesArray, function(index, element) {
       $("#types").append(
@@ -88,10 +72,13 @@ Swal.fire({
     });
 
     // Obteniendo altura del pokemon.
-    datos.append(`<p> Peso: ${result.value.height / 10} m</p>`);
+    info.append(`<h5>Altura: </h5>`);
+
+    info.append(`<ul><li>${result.value.height / 10} m</li></ul>`);
 
     // Obteniendo peso del pokemon.
-    datos.append(`<p> Peso: ${result.value.weight / 10} kg</p>`);
+    info.append(`<h5>Peso: </h5>`);
+    info.append(`<ul><li>${result.value.weight / 10} kg</ul></li>`);
 
     /******Gráfico****** */
     $("#myChart").append('<ul id="stats">Stats</ul>');
@@ -125,15 +112,15 @@ Swal.fire({
             data: arrBaseStats,
 
             backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
+              "rgba(255, 99, 132, 0.5)",
+              "rgba(54, 162, 235, 0.5)",
+              "rgba(255, 206, 86, 0.5)",
+              "rgba(75, 192, 192, 0.5)",
+              "rgba(153, 102, 255, 0.5)",
+              "rgba(255, 159, 64, 0.5)"
             ],
             borderColor: [
-              "rgba(255, 99, 132, 1)",
+              "rgba(255, 99, 132)",
               "rgba(54, 162, 235, 1)",
               "rgba(255, 206, 86, 1)",
               "rgba(75, 192, 192, 1)",
