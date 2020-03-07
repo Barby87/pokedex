@@ -1,5 +1,9 @@
-/* .box-datos {
-    border: 1px solid grey;
-    height: 250px;
-    width: 250px; 
-} */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.carousel-item img {
+    width: 20rem;
+}

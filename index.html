@@ -10,6 +10,8 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--Sweet Alert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!--ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- Mis estilos css-->
     <link rel="stylesheet" href="assets//css/style.css">
 </head>
@@ -17,12 +19,8 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="datos" class="box-datos">
-                </div>
-            </div>
-        </div>
+        <div id="datos" class="box-datos"></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
     </div>
 
     <!-- jQuery-->
