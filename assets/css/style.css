@@ -2,7 +2,7 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 4fr 1fr;
 }
 
 .main_container {
@@ -40,11 +40,6 @@ body {
 
 /* Media query para pantallas grandes */
 @media screen and (min-width: 768px) {
-    .grid {
-        grid-template-rows: 3fr 1fr;
-
-    }
-
     .img {
         width: 15em;
     }
