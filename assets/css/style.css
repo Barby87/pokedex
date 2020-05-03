@@ -1,12 +1,28 @@
 /* Definiendo grilla*/
-.container {
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr;
+}
+
+.main_container {
+    grid-row: 1/2;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 4em;
     align-items: center;
+
 }
 
+.chart {
+    width: 90vw;
+    height: 80vh
+}
+
+footer {
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
 /* Ajustando tamaño de la imágen del pokemon */
 .img {
     width: 10em;
@@ -14,7 +30,8 @@
 
 /* Margen del div donde irá la información */
 .infoPokemon {
-    margin: 0 3em;   
+    margin-bottom: 5em; 
+    margin-left: 2em;  
 }
 
 body {
@@ -23,14 +40,36 @@ body {
 
 /* Media query para pantallas grandes */
 @media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+    .grid {
+        grid-template-rows: 3fr 1fr;
+
     }
 
     .img {
         width: 15em;
+    }
+
+    .main_container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+    }
+
+    .box-datos {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .chart {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        width: 30vw;
+        height: 30vh;
+    }
+
+    footer {
+        margin-top: 3em;
+        padding: 5em;
     }
 
 }
@@ -60,8 +99,6 @@ ul {
 
 .footer {
     background-color: rgb(214, 8, 8);
-    margin-top: 8rem;
-    padding-bottom: 1em;
 }
 
 .footer_imgLogo {

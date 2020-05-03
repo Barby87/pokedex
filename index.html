@@ -17,29 +17,30 @@
 </head>
 
 <body>
+    <div class="grid">
+        <main class="main_container container">
+            <div id="datos" class="box-datos">
+                <div>
+                    <span id="img1"></span>
+                    <span id="img2"></span>
+                </div>
 
-    <main class="container pt-5">
-        <div id="datos" class="box-datos">
-            <div class="pb-4">
-                <span id="img1"></span>
-                <span id="img2"></span>
+                <div id="info" class="infoPokemon">
+
+                </div>
             </div>
 
-            <div id="info" class="infoPokemon">
-
+            <div class="chart">
+                <canvas id="myChart" width="400" height="400"></canvas>
             </div>
-        </div>
+        </main>
 
-        <div class="chart">
-            <canvas id="myChart" width="400" height="400"></canvas>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="d-flex justify-content-center p-5">
-            <img src="assets/img/logo_pokemon.webp" class="footer_imgLogo" alt="Logo footer">
-        </div>
-    </footer>
+        <footer class="footer d-flex justify-content-center align-items-center py-3">
+            <div>
+                <img src="assets/img/logo_pokemon.webp" class="footer_imgLogo" alt="Logo footer">
+            </div>
+        </footer>
+    </div>
 
     <!-- jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

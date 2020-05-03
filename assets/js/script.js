@@ -37,7 +37,7 @@ Swal.fire({
 
     let sprite2 = `<img src="${result.value.sprites.back_shiny}" class="img img_pokemon1" alt="Imagen parte trasera">`;
 
-    // Añadiendo las imágenes los <div> con su respectivo id.
+    // Añadiendo a las imágenes los <div> con su respectivo id.
     $("#img1").append(sprite1);
     $("#img2").append(sprite2);
 
